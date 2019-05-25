@@ -1,0 +1,2 @@
+defmodule MoxExample do
+end
