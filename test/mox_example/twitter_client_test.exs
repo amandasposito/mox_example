@@ -17,7 +17,9 @@ defmodule MoxExample.TwitterClientTest do
       Plug.Conn.resp(conn, 200, response)
     end)
 
-    tweets = TwitterClient.fetch("http://localhost:#{bypass.port}")
+    Application.put_env(:mox_example, :twitter_api, "http://localhost:#{bypass.port}")
+
+    tweets = TwitterClient.fetch()
 
     assert tweets == [%{"text" => "Elixir Brasil 2019"}]
   end

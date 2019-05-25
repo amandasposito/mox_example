@@ -1,7 +1,7 @@
 defmodule MoxExample.Timeline do
-  alias MoxExample.TwitterClient
+  @twitter Application.get_env(:mox_example, :twitter)
 
   def messages do
-    TwitterClient.fetch()
+    {:ok, Enum.count(@twitter.fetch())}
   end
 end
